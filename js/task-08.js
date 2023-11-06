@@ -1,29 +1,29 @@
-// Отримуємо посилання на форму
-const loginForm = document.querySelector('.login-form');
+// We get a link to the form
+const loginForm = document.querySelector(".login-form");
 
-// Додаємо обробник події submit до форми
-loginForm.addEventListener('submit', function(event) {
+// Add a submit action handler to the form
+loginForm.addEventListener("submit", function (event) {
   // Зупиняємо стандартну дію відправки форми
   event.preventDefault();
 
-  // Отримуємо значення полів форми
+  // Get the values of the form fields
   const email = loginForm.elements.email.value;
   const password = loginForm.elements.password.value;
 
-  // Перевіряємо, чи всі поля заповнені
+  // Check if all fields are filled in
   if (!email || !password) {
-    alert('Всі поля повинні бути заповнені');
+    alert("Всі поля повинні бути заповнені");
   } else {
-    // Створюємо об'єкт зі значеннями полів
+    // Create an object with field values
     const formData = {
       email: email,
-      password: password
+      password: password,
     };
 
-    // Виводимо об'єкт з даними в консоль
+    // Display an object with data in the console
     console.log(formData);
 
-    // Очищаємо значення полів форми
+    // Clear the values of form fields
     loginForm.reset();
   }
 });
