@@ -15,11 +15,19 @@ const images = [
 
 const galleryElement = document.querySelector(".gallery");
 
+const ulElement = document.createElement("ul");
+ulElement.classList.add("gallery-list");
+
 images.forEach((image) => {
-  const liHtml = `
-        <li class="gallery-item">
-            <img src="${image.url}" alt="${image.alt}">
-        </li>
-    `;
-  galleryElement.insertAdjacentHTML("beforeend", liHtml);
+  const liElement = document.createElement("li");
+  liElement.classList.add("gallery-item");
+
+  const imgElement = document.createElement("img");
+  imgElement.src = image.url;
+  imgElement.alt = image.alt;
+
+  liElement.appendChild(imgElement);
+  ulElement.appendChild(liElement);
 });
+
+galleryElement.appendChild(ulElement);
